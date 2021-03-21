@@ -1,3 +1,5 @@
+//array of objects containing questions,options and answer
+
 const questions = [
   {
     question:"What is HTML ?",
@@ -32,18 +34,22 @@ const questions = [
     answer:"b"
   }
 ]
+
+//grabbing question element
 let questionEl = document.getElementById("question");
+//label tag element
 let option_a = document.getElementById("a");
 let option_b = document.getElementById("b");
 let option_c = document.getElementById("c");
 let option_d = document.getElementById("d");
-
+// submit button
 let submitBtn = document.getElementById("submit")
 
-
+//adding a click event listener on the submitBtn Obj
 submitBtn.addEventListener('click', nextQuestion)
-
+//initializing counter to 0
 let questionCounter = 0;
+//i could use onload event to instantiate the questions and options
 questionEl.innerHTML = questions[questionCounter].question;
 option_a.innerHTML = questions[questionCounter].a;
 option_b.innerHTML = questions[questionCounter].b;
@@ -51,31 +57,18 @@ option_c.innerHTML = questions[questionCounter].c;
 option_d.innerHTML = questions[questionCounter].d;
 let score = 0
 function nextQuestion(event){
+  //grabbing radio input elements
   let radio_options = document.querySelectorAll(".option");
   for (options of radio_options){
     if(options.checked && (options.getAttribute("data-option") ===questions[questionCounter].answer)){
-      score++;
-      console.log(score)}
+    score++;
+    console.log(score)}
+    }
 
-
-  }
-
-  //   if(options.checked === true){
-  //     console.log(options)
-  //     console.log(options.getAttribute("data-option"))
-    
-    
-  // }
-  
-
-  
-  // option_c
-  // option_a
-  // option_d
   
   questionCounter++;
   if(questionCounter>3){
-    alert("U finished magga")
+    alert(`U finished magga u scored ${ score }`)
   }else{
   // console.log(questions[questionCounter])
   questionEl.innerHTML = questions[questionCounter].question;
