@@ -59,24 +59,10 @@ let score = 0
 function nextQuestion(event){
   //grabbing radio input elements
   let radio_options = document.querySelectorAll(".option");
-  for (options of radio_options){
-    if(options.checked && (options.getAttribute("data-option") ===questions[questionCounter].answer)){
-    score++;
-    console.log(score)}
-    }
-
-  
-  questionCounter++;
-  if(questionCounter>3){
-    alert(`U finished magga u scored ${ score }`)
-  }else{
-  // console.log(questions[questionCounter])
-  questionEl.innerHTML = questions[questionCounter].question;
-  option_a.innerHTML = questions[questionCounter].a;
-  option_b.innerHTML = questions[questionCounter].b;
-  option_c.innerHTML = questions[questionCounter].c;
-  option_d.innerHTML = questions[questionCounter].d;
-
-  // console.log(score)
+  if(radio_options[0].checked === false &&
+    radio_options[1].checked === false &&
+    radio_options[2].checked === false &&
+    radio_options[3].checked === false){
+      alert("pls Choose an option")
   }
 }
