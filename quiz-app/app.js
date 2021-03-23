@@ -44,17 +44,21 @@ let option_c = document.getElementById("c");
 let option_d = document.getElementById("d");
 // submit button
 let submitBtn = document.getElementById("submit")
-
+let questionCounter = 0;
+ 
+function getNewQuestions(){
+  questionEl.innerHTML = questions[questionCounter].question;
+  option_a.innerHTML = questions[questionCounter].a;
+  option_b.innerHTML = questions[questionCounter].b;
+  option_c.innerHTML = questions[questionCounter].c;
+  option_d.innerHTML = questions[questionCounter].d;
+  
+}
 //adding a click event listener on the submitBtn Obj
 submitBtn.addEventListener('click', nextQuestion)
 //initializing counter to 0
-let questionCounter = 0;
 //i could use onload event to instantiate the questions and options
-questionEl.innerHTML = questions[questionCounter].question;
-option_a.innerHTML = questions[questionCounter].a;
-option_b.innerHTML = questions[questionCounter].b;
-option_c.innerHTML = questions[questionCounter].c;
-option_d.innerHTML = questions[questionCounter].d;
+getNewQuestions()
 let score = 0
 function nextQuestion(event){
   //grabbing radio input elements
@@ -64,5 +68,27 @@ function nextQuestion(event){
     radio_options[2].checked === false &&
     radio_options[3].checked === false){
       alert("pls Choose an option")
+      return;
+    }
+  for (options of radio_options){
+    if(options.checked){
+      console.log(options.checked)
+      if(options.getAttribute("data-option") === questions[questionCounter].answer){
+        // console.log("yes")
+        score++;
+      }else{
+        continue
+      }
+    }
   }
+  questionCounter++
+  if(questionCounter === questions.length){
+    console.log(questionCounter)
+    alert(`Dude u finished and scored ${ score }`)
+    return;
+  }
+  console.log(questionCounter)
+  console.log(questions.length)
+  getNewQuestions()
+
 }
