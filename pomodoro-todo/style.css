@@ -10,12 +10,12 @@
 }
 header {
   width: 100vw;
-  height: 25vh;
+  height: 50vh;
 }
 .container {
   width: 90%;
   height: 100%;
-  height: 100%;
+  /* height: 100%; */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -32,11 +32,18 @@ header {
   margin: 1em;
 }
 .todo-container {
+  font-size: 2rem;
   width: 100vw;
-  display: flex;
-  justify-content: center;
+  /* height: 50vh; */
+  /* display: flex; */
+  /* justify-conten;4 */
+  /* justify-content: space-around;
   align-items: center;
-  flex-flow: column;
+  flex-flow: column; */
+  text-align: center;
+}
+.fa-clipboard-list {
+  display: block;
 }
 .input-task {
   display: flex;
@@ -53,9 +60,14 @@ input {
 }
 .plus-button {
   height: 100%;
-  width: 5%;
+  width: 2rem;
   margin-left: 0.7em;
   background-color: purple;
   text-align: center;
   border-radius: 20%;
+  text-align: center;
+}
+ul {
+  text-decoration: none;
+  list-style: none;
 }
