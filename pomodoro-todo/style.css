@@ -71,3 +71,7 @@ ul {
   text-decoration: none;
   list-style: none;
 }
+.completed {
+  text-decoration: line-through;
+  opacity: 0.2;
+}
